@@ -16,7 +16,23 @@ return $rows;
 }
 
 
+function tambah($data) {
+	global $conn;
 
+	$namaBarang = htmlspecialchars($data["nama_barang"]);
+	$merk = htmlspecialchars($data["merk_barang"]);
+	$jenis = htmlspecialchars($data["jenis_barang"]);
+	$jumlah = htmlspecialchars($data["jumlah_barang"]);
+	$harga = htmlspecialchars($data["harga_barang"]);
+
+	//query insert data
+	$query = "INSERT INTO mahasiswa VALUES
+	('','$jenis','$namaBarang','$merk','$jumlah','$harga')
+	";
+	mysqli_query($conn, $query);
+
+	return mysqli_affected_rows($conn);
+}
 
 function cari($keyword) {
 	$query = "SELECT * FROM barang 

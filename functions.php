@@ -19,14 +19,14 @@ return $rows;
 function tambah($data) {
 	global $conn;
 
-	$namaBarang = htmlspecialchars($data["nama_barang"]);
-	$merk = htmlspecialchars($data["merk_barang"]);
-	$jenis = htmlspecialchars($data["jenis_barang"]);
-	$jumlah = htmlspecialchars($data["jumlah_barang"]);
-	$harga = htmlspecialchars($data["harga_barang"]);
+	$namaBarang = $data["nama_barang"];
+	$merk = $data["merk_barang"];
+	$jenis = $data["jenis_barang"];
+	$jumlah = $data["jumlah_barang"];
+	$harga = $data["harga_barang"];
 
 	//query insert data
-	$query = "INSERT INTO mahasiswa VALUES
+	$query = "INSERT INTO barang VALUES
 	('','$jenis','$namaBarang','$merk','$jumlah','$harga')
 	";
 	mysqli_query($conn, $query);

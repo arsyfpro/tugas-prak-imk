@@ -15,7 +15,6 @@ function query($query) {
 return $rows;
 }
 
-
 function tambah($data) {
 	global $conn;
 
@@ -29,6 +28,33 @@ function tambah($data) {
 	$query = "INSERT INTO barang VALUES
 	('','$jenis','$namaBarang','$merk','$jumlah','$harga')
 	";
+	mysqli_query($conn, $query);
+
+	return mysqli_affected_rows($conn);
+}
+
+function edit($data) {
+	global $conn;
+	
+	$id = $data["id"];
+	$jenis = htmlspecialchars($data["jenis_barang"]);
+	$nama = htmlspecialchars($data["nama_barang"]);
+	$merk = htmlspecialchars($data["merk_barang"]);
+	$jumlah = htmlspecialchars($data["jumlah_barang"]);
+	$harga = number_format ($data["harga_barang"]);
+
+	//query insert data
+	$query = "UPDATE  barang SET 
+				jenis_barang = '$jenis',
+				nama_barang = '$nama',
+				merk_barang = '$merk',
+				jumlah_barang = '$jumlah',
+				harga_barang = '$harga'
+
+				WHERE id =$id
+
+				";
+
 	mysqli_query($conn, $query);
 
 	return mysqli_affected_rows($conn);

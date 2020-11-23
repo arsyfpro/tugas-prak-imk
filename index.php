@@ -84,7 +84,7 @@ if (isset($_POST["cari"])) {
 	<td><?= $row["harga_barang"]; ?></td> 
 	<td>
 		<a href="edit.php?id=<?= $row["id"]; ?>"><i class="material-icons"title="Edit">&#xE254;</i></a></a> | 
-		<a href="hapus.php?id=<?= $row["id"];?>" onclick="return confirm('Apakah Anda Yakin?');"><i class="material-icons" title="hapus">&#xE872;</i></a></a>
+		<a href="delete.php?id=<?= $row["id"];?>" onclick="return confirm('Apakah Anda Yakin?');"><i class="material-icons" title="hapus">&#xE872;</i></a></a>
 	</td>
 </tr>
 
